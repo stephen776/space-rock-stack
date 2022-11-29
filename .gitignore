@@ -5,3 +5,7 @@ node_modules
 /functions/\[\[path\]\].js.map
 /public/build
 .env
+.eslintcache
+.DS_Store
+
+/app/styles/app.css

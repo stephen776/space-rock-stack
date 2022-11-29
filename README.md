@@ -4,6 +4,8 @@
 
 ## What's in the stack
 
+Fully Serverless deployment + opinionated styling w/ tailwind+radix
+
 - Deployment to Cloudflare Pages
 - TODO: Github Actions For Deployment
 - TODO: Auth?
@@ -14,12 +16,12 @@
 - TODO: Vitest + Testing Library
 - Typescript
 - TODO: zod
-- TODO: remix-validated-form/zod-form-data
+- TODO: remix-validated-form/zod-form-data/@remix-validated-form/with-zod
 - TODO: remix-auth
 - TODO: remix-typed-json
 - TODO: remix-flat-routes
-- TODO: husky
-- TODO: run eslint+prettier in CI?
+- TODO: husky/lint-staged & run eslint+prettier in CI?
+- TODO: utils - date-fns, clsx, tailwind-merge, tailwind-radix
 
 ## Development
 
