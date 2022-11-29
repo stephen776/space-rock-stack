@@ -7,9 +7,9 @@
 Fully Serverless deployment + opinionated styling w/ tailwind+radix
 
 - Deployment to Cloudflare Pages
-- Styling with Tailwind/RadixUI
+- Styling with Tailwind/DaisyUI/RadixUI
+- Prisma/CockroachDB
 - TODO: Auth? remix-auth?
-- TODO: Prisma/CockroachDB
 - TODO: QStash for Background/CRON Jobs
 - TODO: Github Actions For Deployment
 - TODO: Vitest + Testing Library

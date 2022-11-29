@@ -41,7 +41,7 @@ export function meta() {
 
 function Document({children, title}: {children: React.ReactNode; title?: string}) {
   return (
-    <html lang="en" data-theme="utilistrate">
+    <html lang="en" data-theme="custom">
       <head>
         <Meta />
         <Links />
