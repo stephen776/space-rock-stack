@@ -8,11 +8,18 @@
 - TODO: Github Actions For Deployment
 - TODO: Auth?
 - TODO: Prisma/CockroachDB
-- TODO: Styling with Tailwind
+- TODO: Styling with Tailwind/RadixUI
 - TODO: QStash for Background/CRON Jobs
 - TODO: ESLint/Prettier
 - TODO: Vitest + Testing Library
 - Typescript
+- TODO: zod
+- TODO: remix-validated-form/zod-form-data
+- TODO: remix-auth
+- TODO: remix-typed-json
+- TODO: remix-flat-routes
+- TODO: husky
+- TODO: run eslint+prettier in CI?
 
 ## Development
 
