@@ -19,7 +19,6 @@ Fully Serverless deployment + opinionated styling w/ tailwind+radix
 - remix-typed-json
 - Forms: remix-validated-form with zod-form-data and @remix-validated-form/with-zod validation
 - utils: date-fns, clsx, tailwind-merge, tailwind-radix, remix-utils
-- TODO: run eslint+prettier in CI?
 
 ## Development
 
