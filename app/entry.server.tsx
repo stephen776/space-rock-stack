@@ -1,42 +1,51 @@
-import {renderToReadableStream} from 'react-dom/server';
-import type {EntryContext} from '@remix-run/cloudflare';
+import {PassThrough} from 'stream';
+import type {EntryContext} from '@remix-run/node';
+import {Response} from '@remix-run/node';
 import {RemixServer} from '@remix-run/react';
 import isbot from 'isbot';
+import {renderToPipeableStream} from 'react-dom/server';
 
-export default async function handleRequest(
+const ABORT_DELAY = 5000;
+
+export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
   remixContext: EntryContext,
 ) {
-  const controller = new AbortController();
+  const callbackName = isbot(request.headers.get('user-agent')) ? 'onAllReady' : 'onShellReady';
 
-  try {
-    const stream = await renderToReadableStream(
+  return new Promise((resolve, reject) => {
+    let didError = false;
+
+    const {pipe, abort} = renderToPipeableStream(
       <RemixServer context={remixContext} url={request.url} />,
       {
-        signal: controller.signal,
-        onError: (error) => {
-          responseStatusCode = 500;
+        [callbackName]: () => {
+          const body = new PassThrough();
+
+          responseHeaders.set('Content-Type', 'text/html');
+
+          resolve(
+            new Response(body, {
+              headers: responseHeaders,
+              status: didError ? 500 : responseStatusCode,
+            }),
+          );
+
+          pipe(body);
+        },
+        onShellError: (err: unknown) => {
+          reject(err);
+        },
+        onError: (error: unknown) => {
+          didError = true;
+
           console.error(error);
         },
       },
     );
 
-    if (isbot(request.headers.get('user-agent'))) {
-      await stream.allReady;
-    }
-
-    responseHeaders.set('Content-Type', 'text/html');
-
-    return new Response(stream, {
-      status: responseStatusCode,
-      headers: responseHeaders,
-    });
-  } catch (e) {
-    return new Response('<!doctype html><p>Loading...</p>', {
-      status: 500,
-      headers: {'Content-Type': 'text/html'},
-    });
-  }
+    setTimeout(abort, ABORT_DELAY);
+  });
 }
