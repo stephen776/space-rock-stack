@@ -8,20 +8,18 @@ Fully Serverless deployment + opinionated styling w/ tailwind+radix
 
 - Deployment to Cloudflare Pages
 - Styling with Tailwind/RadixUI
-- TODO: Github Actions For Deployment
-- TODO: Auth?
+- TODO: Auth? remix-auth?
 - TODO: Prisma/CockroachDB
 - TODO: QStash for Background/CRON Jobs
+- TODO: Github Actions For Deployment
 - TODO: Vitest + Testing Library
 - ESLint/Prettier
 - Typescript
-- TODO: zod
-- TODO: remix-validated-form/zod-form-data/@remix-validated-form/with-zod
-- TODO: remix-auth
-- TODO: remix-typed-json
-- TODO: remix-flat-routes
+- remix-flat-routes
+- remix-typed-json
+- Forms: remix-validated-form with zod-form-data and @remix-validated-form/with-zod validation
+- utils: date-fns, clsx, tailwind-merge, tailwind-radix, remix-utils
 - TODO: run eslint+prettier in CI?
-- TODO: utils - date-fns, clsx, tailwind-merge, tailwind-radix
 
 ## Development
 
