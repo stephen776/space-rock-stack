@@ -2,6 +2,10 @@ import type {User} from '@prisma/client';
 
 import {db} from '~/db.server';
 
+export async function listUsers() {
+  return db.user.findMany();
+}
+
 export async function getUserById(id: User['id']) {
   return db.user.findFirst({where: {id}});
 }
