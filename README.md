@@ -9,7 +9,7 @@ Fully Serverless deployment + opinionated styling w/ tailwind+radix
 - Deployment to Cloudflare Pages
 - Styling with Tailwind/DaisyUI/RadixUI
 - Prisma/CockroachDB
-- TODO: Auth? remix-auth?
+- TODO: Auth? remix-auth? auth0?
 - TODO: QStash for Background/CRON Jobs
 - TODO: Github Actions For Deployment
 - TODO: Vitest + Testing Library
@@ -32,6 +32,12 @@ npm run dev
 Open up [http://127.0.0.1:8788](http://127.0.0.1:8788) and you should be ready to go!
 
 ## Migrations
+
+While prototyping in dev we can use `prisma db push` to sync changes with a dev DB.
+
+`npx prisma db push`
+
+Once we are satisfied, we can generate a migration file to preserve the changes and push to other environments
 
 To create a new database migration run:
 

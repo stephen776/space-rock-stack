@@ -18,8 +18,8 @@ export default function Index() {
 
       <ul>
         {users.map((u) => (
-          <li key={u.email}>
-            {u.name} - {u.email}
+          <li key={u.id}>
+            {u.firstName} | {u.lastName} | {u.email}
           </li>
         ))}
       </ul>

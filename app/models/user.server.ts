@@ -1,19 +1,19 @@
-import bcrypt from 'bcryptjs';
 import type {User} from '@prisma/client';
 
 import {db} from '~/db.server';
 
-export async function login(email: User['email'], password: User['passwordHash']) {
-  const user = await db.user.findUnique({
-    where: {email},
+export async function getUserById(id: User['id']) {
+  return db.user.findFirst({where: {id}});
+}
+
+export async function createUser(
+  id: User['id'],
+  email: User['email'],
+  firstName: User['firstName'],
+  lastName: User['lastName'],
+) {
+  return db.user.create({
+    data: {id, email, firstName, lastName},
+    select: {email: true, firstName: true, lastName: true},
   });
-
-  if (!user) return null;
-
-  const isValid = await bcrypt.compare(password, user.passwordHash);
-
-  if (!isValid) return null;
-
-  const {passwordHash: _, ...userWithoutPassword} = user;
-  return userWithoutPassword;
 }

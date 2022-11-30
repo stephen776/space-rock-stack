@@ -1,41 +1,49 @@
 import {PrismaClient} from '@prisma/client';
-import bcrypt from 'bcryptjs';
 
 const db = new PrismaClient();
 
 async function seed() {
   console.log('Seeding DB!');
 
-  const passwordHash = await bcrypt.hash('Truefit1!', 10);
-
   await db.user.upsert({
     where: {email: 'stephenjacobs86@gmail.com'},
-    update: {passwordHash},
+    update: {
+      firstName: 'Stephen',
+      lastName: 'Jacobs',
+    },
     create: {
+      id: 'abcde12345',
       email: 'stephenjacobs86@gmail.com',
-      name: 'Stephen Jacobs',
-      // this is a hashed version of "twixrox"
-      passwordHash,
+      firstName: 'Stephen',
+      lastName: 'Jacobs',
     },
   });
 
   await db.user.upsert({
     where: {email: 'stephenjacobs86+michaelgmail.com'},
-    update: {passwordHash},
+    update: {
+      firstName: 'Michael',
+      lastName: 'Scott',
+    },
     create: {
+      id: 'abcde12346',
       email: 'stephenjacobs86+michaelgmail.com',
-      name: 'Michael Scott',
-      passwordHash,
+      firstName: 'Michael',
+      lastName: 'Scott',
     },
   });
 
   await db.user.upsert({
     where: {email: 'stephenjacobs86+dwight.com'},
-    update: {passwordHash},
+    update: {
+      firstName: 'Dwight',
+      lastName: 'Schrute',
+    },
     create: {
+      id: 'abcde12347',
       email: 'stephenjacobs86+dwight.com',
-      name: 'Dwight Schrute',
-      passwordHash,
+      firstName: 'Dwight',
+      lastName: 'Schrute',
     },
   });
 }
