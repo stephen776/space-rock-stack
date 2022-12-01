@@ -40,6 +40,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remix-flat-routes": "^0.4.8",
+    "remix-params-helper": "^0.4.10",
     "remix-typedjson": "^0.1.6",
     "remix-utils": "^4.2.1",
     "remix-validated-form": "^4.6.5",

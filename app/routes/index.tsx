@@ -1,7 +1,7 @@
 import type {LoaderArgs} from '@remix-run/node';
 import {typedjson, useTypedLoaderData} from 'remix-typedjson';
 
-import {listUsers} from '~/models/user.server';
+import {listUsers} from '~/domain/user.server';
 
 export async function loader({request}: LoaderArgs) {
   const users = await listUsers();
